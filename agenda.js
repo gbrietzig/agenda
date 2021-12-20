@@ -51,8 +51,6 @@ const funcContato = {
         // na posição index, elimina apenas 1 elemento
         this.contatos.splice(index, 1)
 
-        console.log(this.contatos)
-
         // atualiza a lista no storage
         funcStorage.set(this.contatos)
 
@@ -94,10 +92,11 @@ const funcHTML = {
     adicionarElementos(){
         const contatos = funcStorage.get()
 
+        //apagar todas as informações
+        this.limparTabela()
+
         // se tiver algum contato
         if (contatos.length > 0) {
-            //apagar todas as informações
-            this.limparTabela()
             //preencher a tabela
             contatos.forEach(contato => {
                 const tr = document.createElement('tr')
@@ -109,6 +108,15 @@ const funcHTML = {
                 `
                 this.table.appendChild(tr)
             });
+        }
+        else{
+            const tr = document.createElement('tr')
+            tr.innerHTML=`
+                <tr>
+                <td colspan="4">Não existem dados registrados!</td>
+                </tr>
+            `
+            this.table.appendChild(tr)
         }
     }
 }
@@ -122,3 +130,4 @@ function iniciar(){
 }
 
 iniciar()
+
