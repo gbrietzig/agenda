@@ -12,6 +12,10 @@
     <fieldset>
       <legend>Agenda</legend>
 
+      <div class="invisivel">
+        <input id="id" type="text">
+      </div>
+
       <div class="pure-control-group">
         <label for="name">Nome</label>
         <input id="name" type="text" placeholder="Nome">
@@ -25,8 +29,8 @@
       </div>
 
       <div class="pure-controls">
-        <button type="submit" class="pure-button pure-button-primary" onclick="teste()">Adicionar</button>
-        <!-- <button type="submit" class="pure-button pure-button-primary" onclick="CONTATO.criarContato()">Adicionar</button> -->
+        <button id="submit" type="submit" class="pure-button pure-button-primary" onclick="funcHTML.botaoSubmit()">Adicionar</button>
+        <button id="cancel" class="pure-button pure-button-primary" onclick="funcHTML.botaoCancelar()">Limpar</button>
       </div>
     </fieldset>
   </form>
@@ -39,7 +43,7 @@
               <th>#</th>
               <th>Nome</th>
               <th>Email</th>
-              <th>Comandos</th>
+              <th class="comandos">Comandos <a href="#" onclick="funcContato.apagarTudo()">&#128465;</a></th>
           </tr>
       </thead>
 
